@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>П'ять подій з мишкою</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 20pt;
+    }
+    #clickText {
+      cursor: pointer;
+    }
+    #mouseDownUpText {
+      cursor: pointer;
+    }
+    #hoverText {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <p><strong>П'ять подій з мишкою</strong></p>
+
+  <p id="clickText" onclick="toggleStyle()">
+    Клацніть на мене мишкою
+  </p>
+
+  <p id="mouseDownUpText"
+     onmousedown="this.style.backgroundColor='green'"
+     onmouseup="this.style.backgroundColor='yellow'">
+    На цьому тексті натисніть, потримайте і відпустіть ліву кнопку мишки
+  </p>
+
+  <p id="hoverText"
+     onmouseover="this.style.backgroundColor='red'"
+     onmouseout="this.style.backgroundColor='lightblue'">
+    Повільно проведіть курсором мишки по цій написи
+  </p>
+
+  <script>
+    let isStyled = false;
+
+    function toggleStyle() {
+      const el = document.getElementById("clickText");
+
+      if (!isStyled) {
+        el.style.fontSize = "48pt";
+        el.style.color = "white";
+        el.style.backgroundColor = "lightblue";
+      } else {
+        el.style.fontSize = "20pt";
+        el.style.color = "black";
+        el.style.backgroundColor = "transparent";
+      }
+
+      isStyled = !isStyled;
+    }
+  </script>
+</body>
+</html>
